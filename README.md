@@ -1,2 +1,2 @@
 # LevelTools
-Level Tools development branch
+Level Tools plugin for Spigot minecraft servers
