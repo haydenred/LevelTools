@@ -25,6 +25,7 @@ public class Pickaxe extends LevelTool implements Handler {
         this.item = item;
         this.nbtItem = getNBTItem();
         this.blocksBroken = nbtItem.getInteger("blocks");
+        //Load blocks and their respective XP values
         FileConfiguration config = Main.getInstance().getConfig();
         for (String s : config.getStringList("pickaxe.blocks")) {
             String[] split = s.split(":", 1);
@@ -42,6 +43,7 @@ public class Pickaxe extends LevelTool implements Handler {
         }
         nbtItem.setInteger("blocks", blocksBroken + 1);
         saveItem();
+        super.checkForNextLevel();
     }
 
 }

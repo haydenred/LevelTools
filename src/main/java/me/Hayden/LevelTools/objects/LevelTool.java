@@ -12,25 +12,23 @@ import java.util.List;
 public class LevelTool {
 
     //Tool type as defined in the config (ex pickaxe, bow, sword)
-    private String toolType;
-    private ItemStack item;
-    private NBTItem nbtItem;
+    private final ItemStack item;
+    private final NBTItem nbtItem;
+    private final String toolType;
     private Integer toolXP;
     private boolean nextLevel; //Is there a next level?
     private Integer levelXP; //XP Needed to get to the next level
+    private boolean isMaxLevel = false;
     private Integer toolLevel;
     private final FileConfiguration config = Main.getInstance().getConfig();
 
     public LevelTool(String toolType, ItemStack item) {
-        this.toolType = toolType;
         this.item = item;
         this.nbtItem = new NBTItem(item);
         this.toolXP = nbtItem.getInteger("xp");
         this.toolLevel = nbtItem.getInteger("level");
-        this.nextLevel = config.contains(toolType + ".levels." + this.toolLevel + 1);
-        if (this.nextLevel) {
-            this.levelXP = config.getInt(toolType + ".levels." + (this.toolLevel + 1) + ".xp-needed");
-        }
+        this.toolType = toolType;
+
     }
 
     public Integer getToolXP() {
@@ -53,9 +51,23 @@ public class LevelTool {
         return this.nbtItem;
     }
 
+    public String getToolType() {
+        return toolType;
+    }
+
     public void saveItem() {
         this.nbtItem.applyNBT(this.item);
         System.out.println(this.nbtItem.toString());
     }
+
+    public void checkForNextLevel() {
+        if (this.isMaxLevel) {
+            //Tool is max level, cannot level up anymore.
+        }
+        if (nbtItem.getInteger("xp") >= levelXP) {
+
+        }
+    }
+
 
 }
