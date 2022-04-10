@@ -2,8 +2,6 @@ package me.Hayden.LevelTools;
 
 import com.tchristofferson.configupdater.ConfigUpdater;
 import me.Hayden.LevelTools.events.BlockBreakEvent;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;

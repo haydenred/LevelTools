@@ -1,6 +1,5 @@
 package me.Hayden.LevelTools.objects.tools;
 
-import de.tr7zw.changeme.nbtapi.NBTFile;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.Hayden.LevelTools.Main;
 import me.Hayden.LevelTools.objects.Handler;
@@ -16,9 +15,9 @@ import java.util.List;
 public class Pickaxe extends LevelTool implements Handler {
 
     private final HashMap<Material, Integer> blockXP = new HashMap<>();
-    private Integer blocksBroken;
-    private ItemStack item;
-    private NBTItem nbtItem;
+    private final Integer blocksBroken;
+    private final ItemStack item;
+    private final NBTItem nbtItem;
 
     public Pickaxe(ItemStack item) {
         super("pickaxe", item);

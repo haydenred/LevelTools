@@ -4,10 +4,6 @@ import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.Hayden.LevelTools.Main;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class LevelTool {
 
@@ -18,7 +14,7 @@ public class LevelTool {
     private Integer toolXP;
     private boolean nextLevel; //Is there a next level?
     private Integer levelXP; //XP Needed to get to the next level
-    private boolean isMaxLevel = false;
+    private final boolean isMaxLevel = false;
     private Integer toolLevel;
     private final FileConfiguration config = Main.getInstance().getConfig();
 
@@ -57,7 +53,7 @@ public class LevelTool {
 
     public void saveItem() {
         this.nbtItem.applyNBT(this.item);
-        System.out.println(this.nbtItem.toString());
+        System.out.println(this.nbtItem);
     }
 
     public void checkForNextLevel() {
