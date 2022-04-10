@@ -59,7 +59,14 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
                 <configuration>
-                    <!-- put your configurations here -->
+                    <relocations>
+                        <relocation>
+                            <relocation>
+                                <pattern>de.tr7zw.item-nbt-api</pattern>
+                                <shadedPattern>me.Hayden.LevelTools.dependencies</shadedPattern>
+                            </relocation>
+                        </relocation>
+                    </relocations>
                 </configuration>
                 <executions>
                     <execution>
