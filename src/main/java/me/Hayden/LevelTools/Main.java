@@ -18,7 +18,8 @@ public class Main extends JavaPlugin {
         instance = this;
         saveDefaultConfig();
         File configFile = new File(getDataFolder(), "config.yml");
-        updateConfig(configFile, Arrays.asList("pickaxe", "axe", "bow", "crossbow", "sword", "shovel"));
+        List<String> ignoredSections = Arrays.asList("pickaxe", "axe", "bow", "crossbow", "sword", "shovel");
+        updateConfig(configFile, ignoredSections);
         reloadConfig();
         getServer().getPluginManager().registerEvents(new BlockBreakEvent(), this);
     }

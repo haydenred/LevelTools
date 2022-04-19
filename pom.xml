@@ -58,16 +58,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
-                <configuration>
-                    <relocations>
-                        <relocation>
-                            <relocation>
-                                <pattern>de.tr7zw.item-nbt-api</pattern>
-                                <shadedPattern>me.Hayden.LevelTools.dependencies</shadedPattern>
-                            </relocation>
-                        </relocation>
-                    </relocations>
-                </configuration>
                 <executions>
                     <execution>
                         <phase>package</phase>
