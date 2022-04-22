@@ -5,6 +5,7 @@ import me.Hayden.LevelTools.Main;
 import me.Hayden.LevelTools.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.Configuration;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -117,8 +118,10 @@ public class LevelTool {
                         player.sendMessage(Util.translateHexCodes(splits[1].replace("%player%", player.getName())));
                     if (prefix.equalsIgnoreCase("[enchant]")) {
                         String[] splitench = splits[1].split(" ");
-                        //int existingLevel = item.getEnchantmentLevel(Enchantment.getByName(splitench[0]));
-                        //meta.addEnchant(Enchantment.getByName(splitench[0]), existingLevel + Integer.parseInt(splitench[1]), true);
+                        int existingLevel = item.getEnchantmentLevel(Enchantment.getByName(splitench[0]));
+                        ItemMeta meta = item.getItemMeta();
+                        meta.addEnchant(Enchantment.getByName(splitench[0]), existingLevel + Integer.parseInt(splitench[1]), true);
+                        item.setItemMeta(meta);
                     }
                 }
             }
