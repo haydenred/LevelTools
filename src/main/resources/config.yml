@@ -6,15 +6,12 @@
 #╚══════╝╚══════╝░░░╚═╝░░░╚══════╝╚══════╝░░░╚═╝░░░░╚════╝░░╚════╝░╚══════╝╚═════╝░
 settings:
   #What to replace the %xp_needed% placeholder with once the user has reached max level
-  maxLevel: "&a&lMAX"
-
-
-progressbar:
-  filler: "|"
-  bars: 10
-  incomplete_color: "c"
-  complete_color: "a"
-
+  maxlevel: "&a&lMAX"
+  progressbar:
+    filler: "|"
+    bars: 10
+    incomplete_color: "c"
+    complete_color: "a"
 
 pickaxe:
   enabled: true

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class LevelTool {
+public abstract class LevelTool {
 
     private final Configuration configuration = Main.getInstance().getConfig();
 
@@ -41,6 +41,18 @@ public class LevelTool {
         this.player = player;
         this.oldLore = nbtItem.getStringList("lore");
     }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    protected abstract void handle(Object param);
+    protected abstract void setCustomLore();
+
 
     public NBTItem getNBTItem() {
         return this.nbtItem;
@@ -70,13 +82,9 @@ public class LevelTool {
         this.item.setItemMeta(meta);
     }
 
-    public void setLore() {
+    public void setLore(List<String> newLore) {
         this.removeOldLore();
-        List<String> newLore = new ArrayList<>();
-        newLore.add(String.valueOf(new Random().nextInt(10)));
-        //Add new lore to item lore and to the oldLore;
         ItemMeta meta = item.getItemMeta();
-
         List<String> l = meta.getLore();
         l.addAll(newLore);
         meta.setLore(l);
@@ -92,10 +100,13 @@ public class LevelTool {
         //Set item NBT based on recent changes by the checkForNextLevel method
         this.nbtItem.setInteger("xp", this.xp);
         this.nbtItem.setInteger("level", this.level);
-        //Finish off by setting the lore since everything has been set in stone for the item
-        setLore();
+        setCustomLore();
         this.nbtItem.mergeCustomNBT(item);
 
+    }
+
+    public int getXPNeeded() {
+        return configuration.getInt(toolType + ".levels." + (this.level + 1) + ".xp-needed");
     }
 
     public void checkForNextLevel() {
