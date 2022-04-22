@@ -5,13 +5,11 @@ import me.Hayden.LevelTools.Main;
 import me.Hayden.LevelTools.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.Configuration;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -45,10 +43,6 @@ public class LevelTool {
 
     public NBTItem getNBTItem() {
         return this.nbtItem;
-    }
-
-    public String getToolType() {
-        return toolType;
     }
 
     public void addXP(int amt) {
@@ -88,7 +82,6 @@ public class LevelTool {
 
         this.setOldLore(newLore);
         this.item.setItemMeta(meta);
-        System.out.println("CHECK CHECK CHECK " +  meta.getLore());
         //Setting the lore...
     }
 

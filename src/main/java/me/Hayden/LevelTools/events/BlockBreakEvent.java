@@ -1,7 +1,5 @@
 package me.Hayden.LevelTools.events;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
-import me.Hayden.LevelTools.objects.LevelTool;
 import me.Hayden.LevelTools.objects.tools.Pickaxe;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
