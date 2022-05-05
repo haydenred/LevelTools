@@ -5,6 +5,7 @@ import me.Hayden.LevelTools.Main;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.configuration.Configuration;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,12 +13,12 @@ public class Util {
 
     public static final Pattern HEX_PATTERN = Pattern.compile("&#(\\w{5}[0-9a-f])");
 
-    public static String translateHexCodes (String textToTranslate) {
+    public static String translateHexCodes(String textToTranslate) {
 
         Matcher matcher = HEX_PATTERN.matcher(textToTranslate);
         StringBuffer buffer = new StringBuffer();
 
-        while(matcher.find()) {
+        while (matcher.find()) {
             matcher.appendReplacement(buffer, ChatColor.of("#" + matcher.group(1)).toString());
         }
 
@@ -40,6 +41,15 @@ public class Util {
                 + Strings.repeat("" + notCompletedColor + symbol, totalBars - progressBars);
     }
 
+
+    public static List<String> replaceList(List<String> list, String from, String to) {
+        for (int i = 0; i < list.size(); i++) {
+            String s = list.get(i);
+            s = s.replace(from, to);
+            list.set(i, Util.translateHexCodes(s));
+        }
+        return list;
+    }
 
 
 }

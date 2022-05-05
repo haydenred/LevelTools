@@ -1,19 +1,15 @@
 package me.Hayden.LevelTools.events;
 
+import com.vk2gpz.tokenenchant.event.TEBlockExplodeEvent;
 import me.Hayden.LevelTools.LevelToolHandler;
 import me.Hayden.LevelTools.objects.Handler;
-import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BlockBreakEvent implements Listener {
+public class TEExplodeEvent implements Listener {
 
     @EventHandler
-    public void blockBreakEvent(org.bukkit.event.block.BlockBreakEvent event) {
-
+    public void explodeEvent(TEBlockExplodeEvent event) {
         if (event.isCancelled()) {
             return;
         }
@@ -22,10 +18,9 @@ public class BlockBreakEvent implements Listener {
             return;
         }
 
-        List<Block> blockList = new ArrayList<>();
         Handler handler = LevelToolHandler.getLevelTool(event.getPlayer(), event.getPlayer().getItemInHand());
-        blockList.add(event.getBlock());
-        handler.handle(blockList);
+        handler.handle(event.blockList());
     }
+
 
 }

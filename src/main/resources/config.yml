@@ -6,7 +6,7 @@
 #╚══════╝╚══════╝░░░╚═╝░░░╚══════╝╚══════╝░░░╚═╝░░░░╚════╝░░╚════╝░╚══════╝╚═════╝░
 settings:
   #What to replace the %xp_needed% placeholder with once the user has reached max level
-  maxlevel: "&a&lMAX"
+  onlyplayerdamage: false
   progressbar:
     filler: "|"
     bars: 10
@@ -96,7 +96,6 @@ shovel:
 #PVP ITEMS
 sword:
   enabled: true
-  onlyplayerdamage: false
   lore:
     - "&7DAMAGE: &c%damage% / %damage_needed%"
     - "&7Level: &b%level% &8(&a%percentage%%&8)"
@@ -119,7 +118,6 @@ sword:
 
 bow:
   enabled: true
-  onlyplayerdamage: false
   lore:
     - "&7DAMAGE: &c%damage% / %damage_needed%"
     - "&7Level: &b%level% &8(&a%percentage%%&8)"
@@ -144,7 +142,6 @@ bow:
 #If you are on 1.8 leave everything below here disabled
 crossbow:
   enabled: false
-  onlyplayerdamage: false
   lore:
     - "&7DAMAGE: &c%damage% / %damage_needed%"
     - "&7Level: &b%level% &8(&a%percentage%%&8)"
