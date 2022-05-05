@@ -1,0 +1,5 @@
+name: LevelTools
+version: 2.0.0
+main: me.Hayden.LevelTools.Main
+softdepend: [ AutoSell, VKAutoPickup, TokenEnchant ]
+api-version: 1.13
