@@ -29,6 +29,7 @@ public class Main extends JavaPlugin {
         List<String> ignoredSections = Arrays.asList("pickaxe", "axe", "bow", "crossbow", "sword", "shovel");
         updateConfig(configFile, ignoredSections);
         reloadConfig();
+        getServer().getPluginCommand("leveltools").setExecutor(new Command());
         getServer().getPluginManager().registerEvents(new DamageEvent(), this);
         if (getServer().getPluginManager().isPluginEnabled("TokenEnchant")) {
             getServer().getLogger().log(Level.INFO, "TokenEnchant hook has been automatically enabled");
