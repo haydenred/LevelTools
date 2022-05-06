@@ -177,7 +177,6 @@ public abstract class LevelTool {
                     if (prefix.equalsIgnoreCase("[enchant]")) {
                         String[] splitench = splits[1].split(" ");
                         addEnchantment(Enchantment.getByName(splitench[0]), Integer.parseInt(splitench[1]));
-
                     }
                 }
             }

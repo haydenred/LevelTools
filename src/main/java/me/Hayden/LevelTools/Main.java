@@ -23,6 +23,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        new Metrics(this, 11581);
         instance = this;
         saveDefaultConfig();
         File configFile = new File(getDataFolder(), "config.yml");
