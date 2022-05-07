@@ -77,7 +77,7 @@ shovel:
   #How much XP each block should give?
   blocks:
     - GRASS_BLOCK:2
-      - DIRT:1
+    - DIRT:1
   disabled_worlds:
     - "example"
 
