@@ -1,7 +1,7 @@
 name: LevelTools
-version: 2.0.0
+version: 2.0.1
 main: me.Hayden.LevelTools.Main
-softdepend: [ AutoSell, VKAutoPickup, TokenEnchant ]
+softdepend: [ AutoSell, VKAutoPickup, TokenEnchant, AdvancedEnchantments ]
 api-version: 1.13
 commands:
   leveltools:

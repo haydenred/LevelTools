@@ -1,8 +1,10 @@
 package me.Hayden.LevelTools.objects;
 
+import com.cryptomorin.xseries.XEnchantment;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.Hayden.LevelTools.Main;
 import me.Hayden.LevelTools.util.Util;
+import net.advancedplugins.ae.api.AEAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.enchantments.Enchantment;
@@ -16,9 +18,6 @@ import java.util.List;
 public abstract class LevelTool {
 
     private final Configuration configuration = Main.getInstance().getConfig();
-
-    private final ItemStack item;
-
     private final NBTItem nbtItem;
     private final String toolType;
     private final Player player;
@@ -27,6 +26,7 @@ public abstract class LevelTool {
     //This method is used to assure that the lore is preserved from the item
     //and not cleared which happened in LevelTools 1.0 and caused many issues
     private final List<String> oldLore;
+    private ItemStack item;
     private int xp;
     private int level;
 
@@ -176,7 +176,12 @@ public abstract class LevelTool {
                         player.sendMessage(Util.translateHexCodes(splits[1].replace("%player%", player.getName())));
                     if (prefix.equalsIgnoreCase("[enchant]")) {
                         String[] splitench = splits[1].split(" ");
-                        addEnchantment(Enchantment.getByName(splitench[0]), Integer.parseInt(splitench[1]));
+                        if (Main.advancedEnchantments && AEAPI.isAnEnchantment(splitench[0]) && AEAPI.getMaterialsForEnchantment(splitench[0]).contains(this.item.getType())) {
+                            int currentLevel = AEAPI.getEnchantLevel(splitench[0], this.item);
+                            this.item = AEAPI.applyEnchant(splitench[0], Integer.parseInt(splitench[1]) + currentLevel, this.item);
+                        } else {
+                            addEnchantment(XEnchantment.matchXEnchantment(splitench[0]).get().getEnchant(), Integer.parseInt(splitench[1]));
+                        }
                     }
                 }
             }

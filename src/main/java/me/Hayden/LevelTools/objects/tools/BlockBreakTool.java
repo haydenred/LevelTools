@@ -1,10 +1,10 @@
 package me.Hayden.LevelTools.objects.tools;
 
+import com.cryptomorin.xseries.XMaterial;
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import me.Hayden.LevelTools.Main;
 import me.Hayden.LevelTools.objects.Handler;
 import me.Hayden.LevelTools.objects.LevelTool;
-import me.Hayden.LevelTools.util.UMaterial;
 import me.Hayden.LevelTools.util.Util;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -31,7 +31,7 @@ public class BlockBreakTool extends LevelTool implements Handler {
         //Load blocks and their respective XP values
         for (String s : config.getStringList(type + ".blocks")) {
             String[] split = s.split(":", 2);
-            Material material = UMaterial.valueOf(split[0]).getMaterial();
+            Material material = XMaterial.matchXMaterial(split[0]).get().parseMaterial();
             Integer worth = Integer.valueOf(split[1]);
             blockXP.put(material, worth);
         }

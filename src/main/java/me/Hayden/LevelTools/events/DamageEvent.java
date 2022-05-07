@@ -21,6 +21,9 @@ public class DamageEvent implements Listener {
                 return;
             }
         }
+        if (getDamager(event) == null) {
+            return;
+        }
         Player player = getDamager(event);
         if (!LevelToolHandler.damageItems.contains(player.getItemInHand().getType().toString())) {
             return;
@@ -45,7 +48,7 @@ public class DamageEvent implements Listener {
             return (Player) event.getDamager();
         }
 
-        return player;
+        return null;
     }
 
 }

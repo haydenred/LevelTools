@@ -15,6 +15,7 @@ import java.util.logging.Level;
 
 public class Main extends JavaPlugin {
 
+    public static boolean advancedEnchantments = false;
     private static Main instance;
 
     public static Main getInstance() {
@@ -35,6 +36,9 @@ public class Main extends JavaPlugin {
         if (getServer().getPluginManager().isPluginEnabled("TokenEnchant")) {
             getServer().getLogger().log(Level.INFO, "TokenEnchant hook has been automatically enabled");
             getServer().getPluginManager().registerEvents(new TEExplodeEvent(), this);
+        }
+        if (getServer().getPluginManager().isPluginEnabled("AdvancedEnchantments")) {
+            advancedEnchantments = true;
         }
         if (getServer().getPluginManager().isPluginEnabled("AutoSell")) {
             getServer().getLogger().log(Level.INFO, "AutoSell hook has been automatically enabled");

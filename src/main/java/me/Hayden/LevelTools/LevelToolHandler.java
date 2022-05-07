@@ -11,11 +11,11 @@ import java.util.List;
 
 public class LevelToolHandler {
 
-    public static final List<String> damageItems = Arrays.asList("DIAMOND_SWORD", "NETHERITE_SWORD", "GOLD_SWORD", "IRON_SWORD", "STONE_SWORD", "WOOD_SWORD",
+    public static final List<String> damageItems = Arrays.asList("DIAMOND_SWORD", "NETHERITE_SWORD", "GOLD_SWORD", "IRON_SWORD", "STONE_SWORD", "WOODEN_SWORD",
             "BOW", "CROSSBOW");
-    public static final List<String> blockBreakItems = Arrays.asList("DIAMOND_PICKAXE", "NETHERITE_PICKAXE", "GOLD_PICKAXE", "IRON_PICKAXE", "STONE_PICKAXE", "WOOD_PICKAXE",
-            "DIAMOND_AXE", "NETHERITE_AXE", "GOLD_AXE", "IRON_AXE", "STONE_AXE", "WOOD_AXE",
-            "DIAMOND_SHOVEL", "NETHERITE_SHOVEL", "GOLD_SHOVEL", "IRON_SHOVEL", "STONE_SHOVEL", "WOOD_SHOVEL");
+    public static final List<String> blockBreakItems = Arrays.asList("DIAMOND_PICKAXE", "NETHERITE_PICKAXE", "GOLD_PICKAXE", "IRON_PICKAXE", "STONE_PICKAXE", "WOODEN_PICKAXE",
+            "DIAMOND_AXE", "NETHERITE_AXE", "GOLD_AXE", "IRON_AXE", "STONE_AXE", "WOODEN_AXE",
+            "DIAMOND_SHOVEL", "NETHERITE_SHOVEL", "GOLD_SHOVEL", "IRON_SHOVEL", "STONE_SHOVEL", "WOODEN_SHOVEL");
 
 
     public static Handler getLevelTool(Player player, ItemStack item) {
