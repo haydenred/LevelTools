@@ -40,6 +40,11 @@ public abstract class LevelTool {
         this.oldLore = nbtItem.getStringList("lore");
     }
 
+
+    public String getToolType() {
+        return toolType;
+    }
+
     public int getXp() {
         return xp;
     }

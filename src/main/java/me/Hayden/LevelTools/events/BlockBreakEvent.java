@@ -24,8 +24,12 @@ public class BlockBreakEvent implements Listener {
 
         List<Block> blockList = new ArrayList<>();
         Handler handler = LevelToolHandler.getLevelTool(event.getPlayer(), event.getPlayer().getItemInHand());
+        if (handler == null) {
+            return;
+        }
         blockList.add(event.getBlock());
         handler.handle(blockList);
+
     }
 
 }

@@ -46,6 +46,7 @@ public class Main extends JavaPlugin {
         } else {
             getServer().getPluginManager().registerEvents(new BlockBreakEvent(), this);
         }
+
     }
 
     private void updateConfig(File file, List<String> ignoredSections) {

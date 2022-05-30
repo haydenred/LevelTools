@@ -16,6 +16,9 @@ public class DamageEvent implements Listener {
         if (event.isCancelled()) {
             return;
         }
+        if (!(event.getDamager() instanceof Player)) {
+            return;
+        }
         if (Main.getInstance().getConfig().getBoolean("settings.onlyplayerdamage")) {
             if (!(event.getEntity() instanceof Player)) {
                 return;
@@ -28,9 +31,12 @@ public class DamageEvent implements Listener {
         if (!LevelToolHandler.damageItems.contains(player.getItemInHand().getType().toString())) {
             return;
         }
-        Double d = event.getDamage();
+        double d = event.getDamage();
         Handler handler = LevelToolHandler.getLevelTool(player, player.getItemInHand());
-        handler.handle(d.intValue());
+        if (handler == null) {
+            return;
+        }
+        handler.handle((int) d);
 
     }
 

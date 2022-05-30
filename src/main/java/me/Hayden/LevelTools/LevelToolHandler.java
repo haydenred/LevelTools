@@ -20,6 +20,7 @@ public class LevelToolHandler {
 
     public static Handler getLevelTool(Player player, ItemStack item) {
         Handler handler = null;
+        String type = null;
         String itemName = item.getType().toString();
 
         //NOTE: ADD AXE,SHOVEL
@@ -31,6 +32,7 @@ public class LevelToolHandler {
             case "STONE_PICKAXE":
             case "IRON_PICKAXE":
                 handler = new BlockBreakTool("pickaxe", item, player);
+                type = "pickaxe";
                 break;
             case "DIAMOND_AXE":
             case "GOLD_AXE":
@@ -39,6 +41,7 @@ public class LevelToolHandler {
             case "STONE_AXE":
             case "IRON_AXE":
                 handler = new BlockBreakTool("axe", item, player);
+                type = "axe";
                 break;
             case "DIAMOND_SHOVEL":
             case "GOLD_SHOVEL":
@@ -47,14 +50,17 @@ public class LevelToolHandler {
             case "STONE_SHOVEL":
             case "IRON_SHOVEL":
                 handler = new BlockBreakTool("shovel", item, player);
+                type = "shovel";
                 break;
         }
 
         switch (itemName) {
             case "BOW":
+                type = "bow";
                 handler = new DamageTool("bow", item, player);
                 break;
             case "CROSSBOW":
+                type = "crossbow";
                 handler = new DamageTool("crossbow", item, player);
                 break;
             case "NETHERITE_SWORD":
@@ -63,11 +69,16 @@ public class LevelToolHandler {
             case "IRON_SWORD":
             case "STONE_SWORD":
             case "WOODEN_SWORD":
+                type = "sword";
                 handler = new DamageTool("sword", item, player);
                 break;
         }
 
-        return handler;
+        if (Main.getInstance().getConfig().getBoolean(type + ".enabled")) {
+            return handler;
+        }
+
+        return null;
     }
 
 }

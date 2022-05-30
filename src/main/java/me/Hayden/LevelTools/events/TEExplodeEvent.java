@@ -19,6 +19,9 @@ public class TEExplodeEvent implements Listener {
         }
 
         Handler handler = LevelToolHandler.getLevelTool(event.getPlayer(), event.getPlayer().getItemInHand());
+        if (handler == null) {
+            return;
+        }
         handler.handle(event.blockList());
     }
 
