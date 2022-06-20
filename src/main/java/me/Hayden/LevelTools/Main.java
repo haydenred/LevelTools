@@ -1,10 +1,7 @@
 package me.Hayden.LevelTools;
 
 import com.tchristofferson.configupdater.ConfigUpdater;
-import me.Hayden.LevelTools.events.AutoSellBlockBreak;
-import me.Hayden.LevelTools.events.BlockBreakEvent;
-import me.Hayden.LevelTools.events.DamageEvent;
-import me.Hayden.LevelTools.events.TEExplodeEvent;
+import me.Hayden.LevelTools.events.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -33,6 +30,7 @@ public class Main extends JavaPlugin {
         reloadConfig();
         getServer().getPluginCommand("leveltools").setExecutor(new Command());
         getServer().getPluginManager().registerEvents(new DamageEvent(), this);
+        getServer().getPluginManager().registerEvents(new onJoin(), this);
         if (getServer().getPluginManager().isPluginEnabled("TokenEnchant")) {
             getServer().getLogger().log(Level.INFO, "TokenEnchant hook has been automatically enabled");
             getServer().getPluginManager().registerEvents(new TEExplodeEvent(), this);
